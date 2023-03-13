@@ -39,7 +39,12 @@ class Tasks {
         });
     }
 
-    
+    //loading the data from the JSON File
+    loadTaskFromArray(tasks){
+        tasks.forEach(element => {
+            this._list[element.id] = element;
+        });
+    }
 }
 
 export{
