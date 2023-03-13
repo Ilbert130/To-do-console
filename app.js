@@ -1,4 +1,4 @@
-import { inquirerMenu } from "./helpers/inquirer.js";
+import { inquirerMenu, pause } from "./helpers/inquirer.js";
 
 
 
@@ -13,6 +13,22 @@ const main = async () => {
         opt = await inquirerMenu();
         console.log(opt);
 
+        switch(opt){
+            case '1':
+                break;
+            case '2':
+                break;
+            case '3':
+                break;
+            case '4':
+                break;
+            case '5':
+                break;
+            case '6':
+                break;    
+        }
+
+        await pause();
 
     }while(opt !== '0');
 }

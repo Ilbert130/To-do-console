@@ -50,7 +50,8 @@ const inquirerMenu = async() => {
     return option;
 }
 
-const stop = async() => {
+//To pause the flow and see which option we can choice
+const pause = async() => {
 
     const question = [
         {
@@ -59,8 +60,12 @@ const stop = async() => {
             message: `Presione ${'ENTER'.green} para continuar`
         }
     ];
+
+    console.log('\n');
+    await inquirer.prompt(question);
 }
 
 export {
-    inquirerMenu
+    inquirerMenu,
+    pause
 }
