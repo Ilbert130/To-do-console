@@ -19,3 +19,8 @@ const readDB = () => {
     const data = JSON.parse(info);
     return data;
 }
+
+export{
+    saveDB,
+    readDB
+}

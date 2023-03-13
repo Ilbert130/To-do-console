@@ -1,4 +1,4 @@
-import { Task } from "./task";
+import { Task } from "./task.js";
 
 
 class Tasks {
@@ -14,14 +14,32 @@ class Tasks {
         Object.keys(this._list).forEach(key => {
             const task = this._list[key];
             list.push(task);
-        })
+        });
+
+        return list;
     }
 
     //Creating a new task
     createTask(desc){
         const task = new Task(desc);
-        this._list[homework.id] = homework;
+        this._list[task.id] = task;
     }
+
+    //showing all tasks
+    allTasks(){
+
+        console.log();
+        this.listArr.forEach((task, i)=>{
+
+            const idx = `${i + 1}.`.green;
+            const {desc, completedOn} = task;
+            const state = (completedOn) ? 'Completada'.green : 'Pendiente'.red;
+
+            console.log(`${idx} ${desc} :: ${state}`);
+        });
+    }
+
+    
 }
 
 export{

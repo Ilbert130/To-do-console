@@ -1,4 +1,5 @@
 import { inquirerMenu, pause, readInput } from "./helpers/inquirer.js";
+import { readDB, saveDB } from "./helpers/Savefile.js";
 import { Tasks } from "./models/tasks.js";
 
 
@@ -9,6 +10,12 @@ const main = async () => {
 
     let opt = '';
     const tasks = new Tasks();
+    const taskDB = readDB();
+
+    if(taskDB){
+        //loading the data saved
+        tasks.
+    }
 
     do{
 
@@ -20,7 +27,8 @@ const main = async () => {
                 tasks.createTask(desc);
 
                 break;
-            case '2':
+            case '2'://To show all tasks
+                tasks.allTasks();
                 break;
             case '3':
                 break;
@@ -32,7 +40,7 @@ const main = async () => {
                 break;    
         }
 
-        
+        saveDB(tasks.listArr);
         await pause();
 
     }while(opt !== '0');
