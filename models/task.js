@@ -1,7 +1,7 @@
 import { v4 } from "uuid";
 
 
-class Homework {
+class Task {
 
     constructor(desc){
 

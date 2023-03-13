@@ -1,5 +1,4 @@
 import * as fs from 'node:fs';
-import { join } from 'node:path';
 
 const file = './db/data.json';
 
