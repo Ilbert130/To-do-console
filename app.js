@@ -1,4 +1,5 @@
-import { inquirerMenu, pause } from "./helpers/inquirer.js";
+import { inquirerMenu, pause, readInput } from "./helpers/inquirer.js";
+import { Tasks } from "./models/tasks.js";
 
 
 
@@ -7,14 +8,17 @@ console.clear();
 const main = async () => {
 
     let opt = '';
+    const tasks = new Tasks();
 
     do{
 
         opt = await inquirerMenu();
-        console.log(opt);
 
         switch(opt){
-            case '1':
+            case '1': //To create a task
+                const desc = await readInput('Descripcion:');
+                tasks.createTask(desc);
+
                 break;
             case '2':
                 break;
@@ -28,6 +32,7 @@ const main = async () => {
                 break;    
         }
 
+        
         await pause();
 
     }while(opt !== '0');

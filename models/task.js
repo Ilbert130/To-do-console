@@ -14,5 +14,5 @@ class Task {
 }
 
 export {
-    Homework
+    Task
 }

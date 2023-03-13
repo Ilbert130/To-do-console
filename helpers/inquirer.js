@@ -4,7 +4,7 @@ import inquirer from "inquirer";
 const questions = [
     {
         type: 'list',
-        name: 'opcion',
+        name: 'option',
         message: 'Que desea hacer?',
         choices: [
             {
@@ -70,7 +70,7 @@ const readInput = async(message) => {
     const question = [
         {
             type: 'input',
-            name: 'enter',
+            name: 'desc',
             message: message,
             validate(value){
                 if(value.length === 0){
@@ -87,5 +87,6 @@ const readInput = async(message) => {
 
 export {
     inquirerMenu,
-    pause
+    pause,
+    readInput
 }
