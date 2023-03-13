@@ -14,7 +14,7 @@ const main = async () => {
 
     if(taskDB){
         //loading the data saved
-        tasks.
+        tasks.loadTaskFromArray(taskDB);
     }
 
     do{
@@ -25,17 +25,23 @@ const main = async () => {
             case '1': //To create a task
                 const desc = await readInput('Descripcion:');
                 tasks.createTask(desc);
-
                 break;
+
             case '2'://To show all tasks
                 tasks.allTasks();
                 break;
+
             case '3':
+                tasks.listPendingCompleted(true);
                 break;
+
             case '4':
+                tasks.listPendingCompleted(false);
                 break;
+
             case '5':
                 break;
+
             case '6':
                 break;    
         }

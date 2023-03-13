@@ -45,6 +45,28 @@ class Tasks {
             this._list[element.id] = element;
         });
     }
+
+    //To list task pending or completed
+    listPendingCompleted(completed){
+        console.log();
+        this.listTask(completed).forEach((task, i)=> {
+            const idx = `${i + 1}.`.green;
+            const {desc, completedOn} = task;
+            const state = (completedOn) ? `${completedOn}`.green : 'Pendiente'.red;
+
+            console.log(`${idx} ${desc} :: ${state}`);
+        })
+    }
+
+    //To list tasks by filter
+    listTask(completed){
+        if(completed){
+            return this.listArr.filter(task => task.completedOn !== null);
+        }
+
+        return this.listArr.filter(task => task.completedOn === null);
+    }
+
 }
 
 export{

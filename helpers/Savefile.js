@@ -11,7 +11,7 @@ const saveDB = (data) => {
 //Function to read the file
 const readDB = () => {
 
-    if(!fs.existsSync(data)){
+    if(!fs.existsSync(file)){
         return null;
     }
 
