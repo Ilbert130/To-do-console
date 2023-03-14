@@ -67,6 +67,13 @@ class Tasks {
         return this.listArr.filter(task => task.completedOn === null);
     }
 
+    //To delete a task
+    deleteTask(id =''){
+        if(this._list[id]){
+            delete this._list[id];
+        }
+    }
+
 }
 
 export{
