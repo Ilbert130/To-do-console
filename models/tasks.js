@@ -73,7 +73,23 @@ class Tasks {
             delete this._list[id];
         }
     }
+    
+    //To check a task
+    toggleCompleted(ids = []){
 
+        ids.forEach(id => {
+            const task = this._list[id];
+            if(!task.completedOn){
+                task.completedOn = new Date().toISOString();
+            }
+        });
+
+        this.listArr.forEach(task => {
+            if(!ids.includes(task.id)){
+                this._list[task.id].completedOn = null;
+            } 
+        });
+    }
 }
 
 export{
