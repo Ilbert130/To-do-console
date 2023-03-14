@@ -42,7 +42,7 @@ const main = async () => {
             case '5':
                 break;
 
-            case '6':
+            case '6'://To delete a task
                 const id = await listTaskDelete(tasks.listArr);
                 if(id !== '0'){
                     const ok = await confirmDelete();

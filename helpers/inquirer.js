@@ -130,10 +130,36 @@ const confirmDelete = async(message) => {
     return ok;
 }
 
+//To check if a task is completed
+const showListCheckList = async(tasks = []) => {
+    const choices = tasks.map((task, id) => {
+        const idx = `${i+1}.`.green;
+
+        return {
+            value: task.id,
+            name: `${idx} ${task.des}`,
+            checked: (task.completedOn) ? true : false
+        }
+    });
+
+    const questions = [
+        {
+            type: 'checkbox',
+            name: 'ids',
+            message: 'Seleccione',
+            choices: choices
+        }
+    ];
+
+    const {ids} = await inquirer.prompt(questions);
+    return ids;
+}
+
 export {
     inquirerMenu,
     pause,
     readInput, 
     confirmDelete, 
-    listTaskDelete
+    listTaskDelete,
+    showListCheckList
 }
