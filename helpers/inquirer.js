@@ -117,8 +117,23 @@ const listTaskDelete = async(tasks = []) => {
 }
 
 
+const confirm = async(message) => {
+    const question = [
+        {
+            type:'confirm',
+            name:'ok',
+            message:message
+        }
+    ];
+
+    const {ok} = await inquirer.prompt(question);
+    return ok;
+}
+
 export {
     inquirerMenu,
     pause,
-    readInput
+    readInput, 
+    confirm, 
+    listTaskDelete
 }
