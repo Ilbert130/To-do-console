@@ -65,6 +65,7 @@ const pause = async() => {
     await inquirer.prompt(question);
 }
 
+//method to read the input
 const readInput = async(message) => {
 
     const question = [
@@ -84,6 +85,37 @@ const readInput = async(message) => {
     const {desc} = await inquirer.prompt(question);
     return desc;
 }
+
+//Method to delete the any one of the task 
+const listTaskDelete = async(tasks = []) => {
+    const choices = tasks.map((task, i) => {
+
+        const idx = `${i+1}.`.green;
+
+        return {
+            value:task.id,
+            name: `${idx} ${task.desc}`
+        }
+    });
+
+    choices.unshift({
+        value: '0',
+        name: '0.'.green + ' Cancelar'
+    });
+
+    const questions = [
+        {
+            type: 'list',
+            name: 'id',
+            message: 'Borrar',
+            choices: choices
+        }
+    ];
+
+    const {id} = await inquirer.prompt(questions);
+    return id;
+}
+
 
 export {
     inquirerMenu,
