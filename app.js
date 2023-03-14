@@ -31,11 +31,11 @@ const main = async () => {
                 tasks.allTasks();
                 break;
 
-            case '3':
+            case '3'://To show complited tasks
                 tasks.listPendingCompleted(true);
                 break;
 
-            case '4':
+            case '4'://To show pending tasks
                 tasks.listPendingCompleted(false);
                 break;
 
