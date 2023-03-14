@@ -132,12 +132,12 @@ const confirmDelete = async(message) => {
 
 //To check if a task is completed
 const showListCheckList = async(tasks = []) => {
-    const choices = tasks.map((task, id) => {
+    const choices = tasks.map((task, i) => {
         const idx = `${i+1}.`.green;
 
         return {
             value: task.id,
-            name: `${idx} ${task.des}`,
+            name: `${idx} ${task.desc}`,
             checked: (task.completedOn) ? true : false
         }
     });

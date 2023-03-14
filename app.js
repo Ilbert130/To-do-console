@@ -1,4 +1,4 @@
-import { inquirerMenu, listTaskDelete, pause, readInput, confirmDelete } from "./helpers/inquirer.js";
+import { inquirerMenu, listTaskDelete, pause, readInput, confirmDelete, showListCheckList } from "./helpers/inquirer.js";
 import { readDB, saveDB } from "./helpers/Savefile.js";
 import { Tasks } from "./models/tasks.js";
 
@@ -40,6 +40,8 @@ const main = async () => {
                 break;
 
             case '5':
+                const ids = await showListCheckList(tasks.listArr);
+                tasks.toggleCompleted(ids);
                 break;
 
             case '6'://To delete a task
