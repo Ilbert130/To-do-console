@@ -117,7 +117,7 @@ const listTaskDelete = async(tasks = []) => {
 }
 
 //Method to confirm the elimination
-const confirm = async(message) => {
+const confirmDelete = async(message) => {
     const question = [
         {
             type:'confirm',
@@ -134,6 +134,6 @@ export {
     inquirerMenu,
     pause,
     readInput, 
-    confirm, 
+    confirmDelete, 
     listTaskDelete
 }

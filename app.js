@@ -1,4 +1,4 @@
-import { inquirerMenu, pause, readInput } from "./helpers/inquirer.js";
+import { inquirerMenu, listTaskDelete, pause, readInput, confirmDelete } from "./helpers/inquirer.js";
 import { readDB, saveDB } from "./helpers/Savefile.js";
 import { Tasks } from "./models/tasks.js";
 
@@ -43,7 +43,14 @@ const main = async () => {
                 break;
 
             case '6':
-                
+                const id = await listTaskDelete(tasks.listArr);
+                if(id !== '0'){
+                    const ok = await confirmDelete();
+                    if(ok){
+                        tasks.deleteTask(id);
+                        console.log('Tarea borrada');
+                    }
+                }
                 break;    
         }
 
